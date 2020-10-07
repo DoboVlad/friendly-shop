@@ -1,0 +1,33 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active"> Sign Up </h2>
+
+
+    <!-- Login Form -->
+    <form [formGroup] = "registerForm" (ngSubmit) = "onSubmit()">
+      <input type="text" id="firstName" name="login" placeholder="First Name" formControlName="firstName">
+      <span *ngIf="!registerForm.get('firstName').valid && registerForm.get('firstName').touched">
+        <p class="red">First name is required</p>
+      </span>
+      <input type="text" id="lastName" name="login" placeholder="Last Name" formControlName="lastName">
+      <span *ngIf="!registerForm.get('lastName').valid && registerForm.get('lastName').touched">
+        <p class="red">Last name is required</p>
+      </span>
+      <input type="password" id="password" name="login" placeholder="password" formControlName="password">
+      <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">
+        <p class="red">Password is required</p>
+      </span>
+      <input type="password" id="confirmPassword" name="login" placeholder="confirm password" formControlName="confirmPass">
+      <span *ngIf="!registerForm.get('confirmPass').valid && registerForm.get('confirmPass').touched">
+        <p class="red">Confirm password is required</p>
+      </span>
+      <input type="text" id="email" name="login" placeholder="email@email.com" formControlName="email">
+      <span *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">
+        <p class="red">Email is invalid</p>
+      </span>
+      <input type="submit" value="Sign Up" [disabled]="!registerForm.valid">
+    </form>
+
+  </div>
+</div>

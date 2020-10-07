@@ -1,0 +1,29 @@
+<div class="wrapper fadeInDown second">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active"> Sign In </h2>
+
+
+    <!-- Login Form -->
+    <form [formGroup] = "loginForm">
+      <input type="text" id="login" name="login" formControlName="email" placeholder="email">
+      <span *ngIf = "!loginForm.get('email').valid && loginForm.get('email').touched">
+        <p class="red">Email is required</p>
+      </span>
+      <input type="password" id="password" name="login" formControlName="password" placeholder="password">
+      <span *ngIf = "!loginForm.get('password').valid && loginForm.get('password').touched">
+        <p class="red">Password is required</p>
+      </span>
+      <span *ngIf = "error">
+        <p class="red">Wrong email or password</p>
+      </span>
+      <input type="submit" value="Log In" [disabled]="!loginForm.valid" (click) = "logIn()">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>

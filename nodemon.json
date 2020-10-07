@@ -1,0 +1,6 @@
+{
+  "env": {
+    "mongo_password" : "10qVbLJhRZFaoPHi",
+    "jwt_key": "shoptoken"
+  }
+}

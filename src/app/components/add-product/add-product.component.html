@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="column">
+    <br>
+    <h1>Add a new product to sell!</h1>
+    <hr>
+    <form [formGroup] = "sellProducts" (ngSubmit)= "onSubmit()">
+      Name of the product: <input type="text" id="name" name="login" placeholder="name" formControlName="name" style="margin-left: 6.4%;"><br>
+      Price: <input type="text" id="price" name="price" placeholder="price" formControlName="price" style="margin-left: 15%;"><br>
+      Image:
+       <button mat-stroked-button type="button" (click) = "filePicker.click()" style="margin-left: 15%;" class="file" >Pick Image</button>
+       <input type="file" style="visibility: hidden;" #filePicker (change)="onFileSelected($event)">
+      <br>
+      <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview">
+        <img [src]="imagePreview" alt="sellProducts.value.title">
+      </div>
+      Description: <textarea name="description" id="description" cols="30" rows="3" formControlName="description" style="margin-left: 11%;"></textarea><br>
+
+      <input type="submit" value="Add product to sell" style="width: 100">
+    </form>
+  </div>
+</div>

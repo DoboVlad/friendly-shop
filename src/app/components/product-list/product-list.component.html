@@ -1,0 +1,23 @@
+<div class="main-content">
+  <div class="section-content section-content-p30">
+    <div class="containter-fluid">
+      <div class="row">
+        <div *ngFor = "let product of products" class="col-md-4">
+          <div class="product-box" *ngIf="!isfetching">
+            <img [src]="product.image" alt="imagine" class="img-responsive"/>
+            <p>{{product.name}}</p>
+            <p>{{product.description}}</p>
+            <div class="price">
+              price: {{product.price | currency: 'USD'}}
+            </div><br>
+            <p>Added by: {{product.owner.firstName}} {{product.owner.lastName}}</p>
+            <a href="#" class="primary-btn">Add to cart</a>
+          </div>
+        </div>
+        <div *ngIf = "isfetching" class="loader" style="margin: auto"></div>
+      </div>
+      <mat-paginator style="margin-bottom: 10%;" [length]="totalProducts" [pageSize]="productsPerPage" [pageSizeOptions]= "pageSizeOptions"
+        (page) = "OnChangedPage($event)"></mat-paginator>
+    </div>
+  </div>
+</div>
