@@ -1,3 +1,5 @@
+This application is made using node.js and Angular 10. Here I exercised my skills on angular and I understand how angular works. I also undestood how to create an authentication system. This is still in development phase, I also want to create a real-time chat and add to this application to let the users speak to each other.
+
 # MeanApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
@@ -25,3 +27,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
