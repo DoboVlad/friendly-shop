@@ -67,7 +67,6 @@ router.get('/allProducts', auth, async (req, res) => {
             allProducts.push(data);
             }
           )}
-          console.log(allProducts);
            res.status(200).send({
             products: allProducts
           });
