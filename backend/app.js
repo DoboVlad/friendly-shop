@@ -4,13 +4,14 @@ const Products = require('./models/products');
 const mongoose = require('mongoose');
 const userRouter = require('./routers/user');
 const productsRouter = require('./routers/products');
-const cors = require('cors')
+const cors = require('cors');
 const path = require('path');
 
 //10qVbLJhRZFaoPHi
 const app = express();
 
-mongoose.connect('mongodb+srv://Vlad:' + process.env.mongo_password + '@shop.f7lx6.mongodb.net/shop-db?retryWrites=true&w=majority').then(()=> {
+// mongodb+srv://Vlad:' + process.env.mongo_password + '@shop.f7lx6.mongodb.net/shop-db?retryWrites=true&w=majority
+mongoose.connect('mongodb://127.0.0.1:27017/online-shop', {useNewUrlParser: true, useUnifiedTopology: true, ssl: false, useCreateIndex: true}).then(()=> {
     console.log('Connected to database');
 })
 
@@ -24,8 +25,10 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(bodyParser.json({limit: '10mb'}));
-app.use(bodyParser.urlencoded({limit: "10mb", extended: true}));
+// automayically parse from JSON to JS
+app.use(express.json({limit: '10mb'}));
+app.use(express.urlencoded({limit: "10mb", extended: true}));
+
 app.use(userRouter);
 app.use(productsRouter);
 app.use('/images', express.static(path.join('images')));

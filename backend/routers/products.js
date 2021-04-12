@@ -74,6 +74,7 @@ router.get('/allProducts', auth, async (req, res) => {
         }).skip(pageSize * (currentPage - 1))
         .limit(pageSize);;
       }
+      // find({}) -> return all products from db
       await Products.find({}, async (err, products) => {
         for(let index = 0; index < products.length ; index++){
          await products[index].populate('owner').execPopulate().then((data) => {

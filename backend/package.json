@@ -2,7 +2,7 @@
   "name": "mean-app",
   "version": "0.0.0",
   "scripts": {
-    "start:server": "nodemon ./backend/server.js"
+    "start:server": "nodemon ./server.js"
   },
   "private": true,
   "dependencies": {

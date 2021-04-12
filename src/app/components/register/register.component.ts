@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
     user.lastName = this.registerForm.value.lastName;
     user.email = this.registerForm.value.email;
     user.password = this.registerForm.value.password;
+    console.log(user);
     this.userService.registerUser(user).subscribe((data) => {
         this.userService.token = data.token;
         this.userService.user = data;

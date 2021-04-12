@@ -10,20 +10,17 @@ router.get('/users/me', auth, async (req, res) => {
 });
 
 router.post('/users', async (req, res) => {
+  // use {...req.body}
   const user = new User({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    password: req.body.password
+    ...req.body
   });
-
+  console.log(user);
   try{
     await user.save();
     const token = await user.generateAuthToken();
-    console.log(res.status(201).send({user, token}));
     res.status(201).send({user, token});
   }catch (e) {
-    res.status(400).send();
+    res.send(e);
   }
 });
 
@@ -80,3 +77,4 @@ router.patch('/users/me', auth, async (req, res) => {
 });
 
 module.exports = router;
+
